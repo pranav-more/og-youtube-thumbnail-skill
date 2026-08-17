@@ -135,6 +135,16 @@ Gemini-family prompt idioms (the fal models below are Gemini-based):
 9:16 Shorts deltas: top 12% / bottom 25% / right 15% must stay clear of critical elements;
 text in the middle third only, 1–3 words; face LARGER than in horizontal; 2–3 elements max.
 
+Element discipline (Jay Alto's 3-element rule): brainstorm all possible elements, select
+the 2-3 that best serve Attention / Interest / Hook (curiosity), rank them, and give the
+top-ranked element the most visual weight. Curiosity, never confusion. Views beat CTR —
+a clickbait spike that tanks watch time is a loss. The idea ceiling: a thumbnail can only
+ever be as good as the video idea; flag weak ideas instead of polishing them.
+
+MrBeast/Casey Neistat review rules: no wasted space — fill the frame, make the interesting
+thing BIG; blur/darken distracting backgrounds; faces bigger (the face IS the brand, which
+is also why no logos); clean unobstructed shot of the subject.
+
 Craft rules (r/PartneredYoutube community checklist):
 - 80% theory, 20% design: people click videos they want to watch, not pretty thumbnails.
   Rank elements: 1 attention, 2 interest, 3 curiosity — the most important gets the focus.
