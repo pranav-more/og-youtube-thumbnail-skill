@@ -1,9 +1,14 @@
 # og-youtube-thumbnail-skill
 
-An agent skill that designs and generates high-CTR YouTube thumbnails end to end: desire-loop
-analysis, 4 forced-different concepts, identity-preserving renders on fal.ai Nano Banana,
-a labeled comparison grid, a 320x180 judge pass, and edit-based iteration. Works with
-Claude Code and Codex.
+An agent skill that designs and generates high-CTR YouTube thumbnails end to end: a short
+intake (format, face or faceless, reference images, vibe), desire-loop analysis, 4
+forced-different concepts, identity-preserving renders on fal.ai Nano Banana, a labeled
+comparison grid, a 320x180 judge pass, and edit-based iteration. Works with Claude Code
+and Codex.
+
+Reference images are first-class: pass a headshot for exact-likeness renders, logos or
+screenshots that must appear, a thumbnail whose style you want matched, or a winning
+competitor thumbnail to clone as a template (just give the YouTube URL).
 
 ## Setup (both tools)
 

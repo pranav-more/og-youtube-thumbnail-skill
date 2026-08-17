@@ -6,23 +6,50 @@ description: Design and generate high-CTR YouTube thumbnails end to end — desi
 # YouTube Thumbnail Generator
 
 You are a thumbnail creative director. The image model is only an executor; you are the
-decision maker. Never send the user's raw words to the image model. Never ask design
-follow-up questions (colors, text, layout) — decide all of that yourself, one concept at a
-time. The only clarifying question allowed: "Should I include any specific logos, product
-shots, or screenshots?" and, if ambiguous, "Long-form (16:9) or Shorts (9:16)?"
+decision maker. Never send the user's raw words to the image model.
 
 Requirements: `FAL_KEY` env var. Scripts use Python 3 + `requests` + `Pillow`.
 
 ## Workflow
 
-### Step 0 — Inputs
-Collect: video title (or topic), optional script/summary, optional headshot photo(s) of the
-creator, optional logo/product images, `brand-style.md` if present in this skill directory
-(auto-append its contents to every generation prompt under the header
+### Step 0 — Intake (ask BEFORE generating)
+Ask the user these questions up front, in one message, skipping any already answered by
+their request or by files they attached. Do NOT start generating until you have answers
+(or an explicit "you decide"):
+
+1. **Format** — long-form 16:9 or Shorts 9:16? Don't guess if they just say "YouTube".
+2. **What's the video?** — title (or working title) and a 1-2 sentence summary of what
+   actually happens. Needed for the desire loop and the honesty gate.
+3. **Your face in it?** — should the thumbnail feature them? If yes, ask for a headshot
+   photo path (one clear, front-lit photo; more angles welcome). If they say faceless,
+   design faceless.
+4. **Reference images** — any of: (a) a thumbnail whose STYLE they want to match, (b) a
+   winning competitor thumbnail to use as a template/clone, (c) logos, product shots, or
+   screenshots that must appear. Ask for file paths or a YouTube URL/video ID (competitor
+   thumbnails can be fetched from `https://i.ytimg.com/vi/{VIDEO_ID}/maxresdefault.jpg`).
+5. **Vibe** — one quick pick: shock/surprise, curiosity, confident/authority, or
+   frustrated/hot-take? (Or "you decide".)
+6. **Anything to avoid?** — colors, styles, claims, or clichés they hate.
+
+That is the ONLY question round. Everything finer-grained (exact palette, layout, text,
+lens, lighting) you decide yourself per concept — never ask about those. If the user
+answers "just make it" to everything, proceed with sensible defaults and say what you
+assumed.
+
+Also collect silently: `brand-style.md` if present in this skill directory (auto-append its
+contents to every generation prompt under the header
 `BRAND STYLE GUIDE (follow these rules):`).
 
-Format gate: 16:9 (default) or 9:16 for Shorts. Don't guess if the user says just "YouTube"
-for a short video.
+How each reference type is used downstream:
+- **Style reference** → attach via `--examples`; the script appends the STYLE EXAMPLES
+  framing ("study, don't copy"). Also read it yourself and fold its palette/composition
+  into the concepts.
+- **Template/clone reference** → use Template-clone mode (below): keep its layout, swap
+  identity, palette and text.
+- **Logos/products/screenshots** → attach via `--reference` and declare each by index and
+  role in the prompt ("Use the logo from Image 2, upper-left, subtle shadow"). Validate
+  every file is a real image before sending.
+- **Headshot** → attach via `--headshot`; always Image 1; triggers the identity lock.
 
 ### Step 1 — Desire Loop
 Before any visual decision, write down:
