@@ -135,6 +135,19 @@ Gemini-family prompt idioms (the fal models below are Gemini-based):
 9:16 Shorts deltas: top 12% / bottom 25% / right 15% must stay clear of critical elements;
 text in the middle third only, 1–3 words; face LARGER than in horizontal; 2–3 elements max.
 
+Craft rules (r/PartneredYoutube community checklist):
+- 80% theory, 20% design: people click videos they want to watch, not pretty thumbnails.
+  Rank elements: 1 attention, 2 interest, 3 curiosity — the most important gets the focus.
+- NEVER the channel logo (it already sits next to the title) and NO emojis.
+- Faces: eyes on the upper-third line, looking to camera, close crop; emotion must be real.
+- Composition: let elements overlap and bleed off the edges — no timid gaps, and no
+  "edge magnetism" (elements barely touching the frame edge look unbalanced).
+- No hard line borders (fights YouTube's rounded corners); no flat solid-color backgrounds
+  without gradient/texture/blur; mask + darken/blur the background to pop the subject.
+- Text colors: white or black, maybe one yellow accent, unless the palette is deliberate.
+- Vary thumbnails video-to-video: near-identical template covers make subscribers think
+  they've already watched it.
+
 ### Step 4 — Generate all 4 in parallel
 ```bash
 python3 scripts/generate_thumbnail.py \
